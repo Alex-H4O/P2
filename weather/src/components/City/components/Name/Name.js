@@ -17,7 +17,7 @@ const HorizontalRule = styled.div`
 `;
 
 const Name = () =>{
-    const [name, setName] = useState();
+    const [name, setName] = useState('name');
 
     return(
         <Container>
