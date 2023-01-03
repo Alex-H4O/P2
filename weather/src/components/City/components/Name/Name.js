@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
     font-size: 2rem;
     font-weight: 500;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,9 +16,7 @@ const HorizontalRule = styled.div`
     height: 2px;
 `;
 
-const Name = () =>{
-    const [name, setName] = useState('name');
-
+const Name = ({name}) =>{
     return(
         <Container>
             <div>{name}</div>

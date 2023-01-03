@@ -1,6 +1,8 @@
 import Weather from './components/Weather';
 import Name from './components/Name';
 import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import getWeather from '../../utils/getWeather';
 
 const Container = styled.div`
     display: flex;
@@ -24,10 +26,51 @@ const Strip = styled.div`
 `
 
 const City =()=>{
+    //此处是因为name和weather平级，无法传数据，因此需要状态提升到最小，于是提升到此处，才能保证name拿到数据
+    // const [temperature,setTemperature] = useState();
+    // const [condition,setCondition] = useState();
+    // const [humidity,setHumidity] = useState();
+    // const [wind,setWind] = useState();
+    // const [name, setName] = useState();
+
+    const [data, setData] = useState();
+    //使用useEffect拿数据
+    useEffect(()=>{
+        getWeather(setData)
+        // getWeather((data)=>{
+        //     setTemperature(data.main.temp)
+        //     setCondition(data.weather[0].main)
+        //     setHumidity(data.main.humidity)
+        //     setWind(data.wind.speed)
+        //     setName(data.name)
+        // })
+    }, []);
+
+
+    // if(!data){
+    //     return null;
+    // }
+    //写法一
+    //因为数据请求需要时间，所以data在最初为undefined，所以页面会报错reading main，此处当data没数据是，返回null
+
     return(
         <Container>
-            <Weather />
-            <Name />
+            {data && (
+                <React.Fragment>
+                    {/* 占位符 ,可以当一个root,但不渲染任何东西*/}
+                    <Weather
+                        // temperature={temperature}
+                        // condition ={condition}
+                        // humidity= {humidity}
+                        // wind= {wind}
+                        temperature={data.main.temp}
+                        condition ={data.weather[0].main}
+                        humidity= {data.main.humidity}
+                        wind= {data.wind.speed}
+                    />
+                    <Name name = {data.name}/>
+                </React.Fragment>)}
+                {/* 写法二 */}
             <Strip/>
         </Container>
     );

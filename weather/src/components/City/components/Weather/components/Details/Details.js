@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import Item from './components/Items/Item';
 
 const Container = styled.div`
-margin-top: 32px;
+    margin-top: 22px;
     display:flex;
     justify-content: space-between;
 `;
@@ -13,10 +12,10 @@ const Divider = styled.div`
     background:rgba(255,255,255,0.7) ;
 `;
 
-const Details = () =>{
-
-    const [humidity,setHumidity] = useState();
-    const [wind,setWind] = useState();
+const Details = ({
+    humidity,
+    wind
+}) =>{
 
     return(
         <Container>
