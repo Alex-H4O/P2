@@ -21,7 +21,6 @@ const OtherCities =({
     data,
 })=> {
     const [currentCity, setCurrentCity] = useState(2158177);
-    const [temp, setTemp] = useState();
     return(
         <Container>
             <Title>Other Cities</Title>

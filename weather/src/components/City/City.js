@@ -27,8 +27,6 @@ const Strip = styled.div`
 
 const City =({
     id,
-    data,
-    setData,
 })=>{
     //此处是因为name和weather平级，无法传数据，因此需要状态提升到最小，于是提升到此处，才能保证name拿到数据
     // const [temperature,setTemperature] = useState();
@@ -37,18 +35,18 @@ const City =({
     // const [wind,setWind] = useState();
     // const [name, setName] = useState();
 
-    // const [data, setData] = useState();
-    //使用useEffect拿数据
-    // useEffect(()=>{
-    //     getWeather(id, setData)
-    //     // getWeather((data)=>{
-    //     //     setTemperature(data.main.temp)
-    //     //     setCondition(data.weather[0].main)
-    //     //     setHumidity(data.main.humidity)
-    //     //     setWind(data.wind.speed)
-    //     //     setName(data.name)
-    //     // })
-    // }, [id]);
+    const [data, setData] = useState();
+    // 使用useEffect拿数据
+    useEffect(()=>{
+        getWeather(id, setData)
+        // getWeather((data)=>{
+        //     setTemperature(data.main.temp)
+        //     setCondition(data.weather[0].main)
+        //     setHumidity(data.main.humidity)
+        //     setWind(data.wind.speed)
+        //     setName(data.name)
+        // })
+    }, [id]);
 
 
     // if(!data){
