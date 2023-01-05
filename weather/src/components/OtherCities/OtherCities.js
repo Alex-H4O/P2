@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import City from './components/City/City';
-
+import { useState } from 'react';
 const Container = styled.div`
     padding: 36px 48px;
 `;
@@ -10,23 +10,38 @@ const Title = styled.h2`
 `;
 
 const CITIES = [
-    {id:0, name:'Sydney', temperature:'17', weather:{icon:'10n',main:'Rain'}},
-    {id:1, name:'Brisbane', temperature:'20', weather:{icon:'10n',main:'Rain'}},
-    {id:2, name:'Perth', temperature:'21', weather:{icon:'01d',main:'Clear'}},
+    {id:2158177, name:'Melbourne', temperature:'14', weather:{icon:'01n',main:'Rain'}},
+    {id:2147714, name:'Sydney', temperature:'17', weather:{icon:'10n',main:'Rain'}},
+    {id:2174003, name:'Brisbane', temperature:'20', weather:{icon:'10n',main:'Rain'}},
+    {id:2063523, name:'Perth', temperature:'21', weather:{icon:'01d',main:'Clear'}},
 ]
 
-const OtherCities =()=> {
+const OtherCities =({
+    onCityClick,
+    data,
+})=> {
+    const [currentCity, setCurrentCity] = useState(2158177);
+    const [temp, setTemp] = useState();
     return(
         <Container>
             <Title>Other Cities</Title>
-            {CITIES.map((city) => (
-                <City
-                    key={city.id}
-                    name = {city.name}
-                    temperature={city.temperature}
-                    weather={city.weather}
-                />
-            ))}
+            {CITIES.map((city) => {
+                if(currentCity === city.id){
+                    return null;
+                }
+                return(
+                    <City
+                        key={city.id}
+                        name = {city.name}
+                        temperature={city.temperature}
+                        weather={city.weather}
+                        onClick={()=>{
+                            setCurrentCity(city.id)
+                            onCityClick(city.id)
+                        }}
+                    />
+                )
+                })}
         </Container>
     );
 }

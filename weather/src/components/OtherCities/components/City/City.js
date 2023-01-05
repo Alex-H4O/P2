@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import ConditionImage from "./components/conditionImage/ConditionImage";
 
@@ -26,9 +27,14 @@ const City = ({
     name,
     temperature,
     weather,
+    onClick,
 })=>{
     return(
-        <Container>
+        <Container onClick={(event)=>{
+            event.preventDefault();
+            onClick(true);
+            // 点击消失
+        }}>
             <Name>{name}</Name>
             <Temperature>{`${temperature} °`} </Temperature>
             <ConditionImage weather={weather}/>
