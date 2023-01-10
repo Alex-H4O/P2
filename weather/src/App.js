@@ -2,6 +2,7 @@ import styled from "styled-components";
 import City from './components/City';
 import OtherCities from './components/OtherCities';
 import Forecast from './components/Forecast';
+import { useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -25,12 +26,14 @@ const Bottom = styled.div`
 `
 
 const App = ()=> {
+  const [cityId, setCityId] = useState(2158177);
+
   return(
     <Container>
       <Card>
-        <City />
+        <City id = {cityId} />
         <Bottom>
-          <OtherCities />
+          <OtherCities onCityClick={(id) =>setCityId(id)} />
           <Forecast />
         </Bottom>
       </Card>
