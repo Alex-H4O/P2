@@ -5,7 +5,7 @@ const getWeather =(cityId, onSuccess)=>{
         if(this.readyState === 4 && this.status === 200){
             const data = JSON.parse(this.responseText);
             onSuccess(data);
-            console.log(data);
+            // console.log(data);
         }
     }
 
