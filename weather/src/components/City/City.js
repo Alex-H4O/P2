@@ -38,7 +38,7 @@ const City =({
     const [data, setData] = useState();
     // 使用useEffect拿数据
     useEffect(()=>{
-        getWeather(id, setData)
+        getWeather(id, setData)//此处等于 getWeather((data) => setData(data)),因为data重名问题，因此改写，setData会直接进入getWeather中的onSuccess（setData）
         // getWeather((data)=>{
         //     setTemperature(data.main.temp)
         //     setCondition(data.weather[0].main)
@@ -48,12 +48,12 @@ const City =({
         // })
     }, [id]);
 
-
     // if(!data){
     //     return null;
     // }
     //写法一
     //因为数据请求需要时间，所以data在最初为undefined，所以页面会报错reading main，此处当data没数据是，返回null
+    //can not read properties of undefined(reading main) 常见错误！说明读取main时是undefined
 
     return(
         <Container>

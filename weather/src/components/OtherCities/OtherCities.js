@@ -17,15 +17,15 @@ const CITIES = [
 ]
 
 const OtherCities =({
+    currentCityId,
     onCityClick,
-    data,
 })=> {
-    const [currentCity, setCurrentCity] = useState(2158177);
+    // const [currentCity, setCurrentCity] = useState(2158177);
     return(
         <Container>
             <Title>Other Cities</Title>
             {CITIES.map((city) => {
-                if(currentCity === city.id){
+                if(currentCityId === city.id){
                     return null;
                 }
                 return(
@@ -34,10 +34,12 @@ const OtherCities =({
                         name = {city.name}
                         temperature={city.temperature}
                         weather={city.weather}
-                        onClick={()=>{
-                            setCurrentCity(city.id)
-                            onCityClick(city.id)
-                        }}
+                        onClick={()=>onCityClick(city.id)}
+                        // onClick={()=>{
+                        //     // setCurrentCity(city.id)
+                        //     // onCityClick(city.id)
+
+                        // }}
                     />
                 )
                 })}
