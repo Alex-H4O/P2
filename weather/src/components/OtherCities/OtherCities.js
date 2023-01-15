@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import City from './components/City/City';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import getWeather from '../../utils/getWeather';
 const Container = styled.div`
     padding: 36px 48px;
 `;
@@ -20,14 +21,27 @@ const OtherCities =({
     currentCityId,
     onCityClick,
 })=> {
-    // const [currentCity, setCurrentCity] = useState(2158177);
+    const [cityData, setCityData] = useState();
+    // const [cityPic, setCityPic] = useState();
+    useEffect(()=> {
+        const getOtherCitiesData = async() =>{
+            const ids = CITIES.map((c)=> c.id);
+            const cityData = await getWeather(ids[0]);
+            setCityData(cityData);
+        }
+
+        getOtherCitiesData();
+    },[])
+
+    // const [currentCity, setCurrentCity] = useState(2158177); onclick被提升后因为名称问题，所以更改为currentCity，
+    //与City中的const [cityId, setCityId] = useState(2158177);重复
     return(
         <Container>
             <Title>Other Cities</Title>
-            {CITIES.map((city) => {
+            {cityData.map((city) => {
                 if(currentCityId === city.id){
                     return null;
-                }
+                }//判断，当id相同时消失并转换，初始值为Mel,所以墨尔本消失，显示其他的
                 return(
                     <City
                         key={city.id}
