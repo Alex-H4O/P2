@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import City from './components/City/City';
 import { useEffect, useState } from 'react';
-import getWeather from '../../utils/getWeather';
+import getWeathers from '../apis/getWeathers/getWeathers';
 const Container = styled.div`
     padding: 36px 48px;
 `;
@@ -26,7 +26,8 @@ const OtherCities =({
     useEffect(()=> {
         const getOtherCitiesData = async() =>{
             const ids = CITIES.map((c)=> c.id);
-            const cityData = await getWeather(ids[0]);
+            const cityData = await getWeathers(ids);
+            // console.log(cityData);
             setCityData(cityData);
         }
 
@@ -38,7 +39,8 @@ const OtherCities =({
     return(
         <Container>
             <Title>Other Cities</Title>
-            {cityData.map((city) => {
+            {console.log(cityData)}
+            {!cityData? null : cityData.list.map((city) => {
                 if(currentCityId === city.id){
                     return null;
                 }//判断，当id相同时消失并转换，初始值为Mel,所以墨尔本消失，显示其他的
