@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 500;
     margin-top: 10px;
     display: flex;

@@ -8,7 +8,7 @@ const Temperature = styled.div`
 
 const Condition = styled.div`
     /* text-align:center; */
-    margin-left: 50px;
+    margin-left: 55px;
     font-size: 1.5rem;
     letter-spacing: 5px;
     margin-top: 0.25rem;

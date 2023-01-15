@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Item from './components/Items/Item';
 
 const Container = styled.div`
-    margin-top: 22px;
+    margin-top: 25px;
     display:flex;
     justify-content: space-between;
 `;
