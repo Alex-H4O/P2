@@ -26,7 +26,8 @@ const Bottom = styled.div`
 `
 
 const App = ()=> {
-  const [cityId, setCityId] = useState(2158177);
+  const [cityId, setCityId] = useState(2158177);//此处是从City文件夹下的City中提升上来的，
+  //因为othercity需要City中的setCityId，然而平级无法传递数据，所以提升
 
   return(
     <Container>
