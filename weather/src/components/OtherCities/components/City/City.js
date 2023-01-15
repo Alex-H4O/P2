@@ -11,6 +11,7 @@ const Container = styled.button`
     text-align: left;
     cursor: pointer;
     align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 `;
 
 const Name = styled.div`

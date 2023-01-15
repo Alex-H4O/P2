@@ -13,6 +13,7 @@ const Container = styled.div`
     background-size:cover;
     color: white;
     position: relative;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 `
 
 const Strip = styled.div`
