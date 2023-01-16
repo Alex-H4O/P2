@@ -5,6 +5,7 @@ const Container = styled.div`
     margin-top: 25px;
     display:flex;
     justify-content: space-between;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 `;
 
 const Divider = styled.div`
