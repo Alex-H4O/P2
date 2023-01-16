@@ -11,11 +11,13 @@ const Title = styled.h2`
     font-size: 1.5rem;
 `;
 
-const Forecast =()=>{
+const Forecast =({
+    id,
+})=>{
     return(
         <Container>
             <Title>Forecast</Title>
-            <FutureTemp/>
+            <FutureTemp id = {id}/>
         </Container>
     );
 }
