@@ -46,7 +46,7 @@ const OtherCities =({
     return(
         <Container>
             <Title>Other Cities</Title>
-            {console.log(cityData)}
+            {/* {console.log(cityData)} */}
             {cityData && cityData.data.list.map((city) => {
                 if(currentCityId === city.id){
                     return null;
@@ -58,7 +58,7 @@ const OtherCities =({
                         temperature={parseInt(city.main.temp)}
                         weather={{
                             icon:city.weather[0].icon,
-                            descripton:city.weather[0].main,
+                            description:city.weather[0].main,
                         }}
                         onClick={()=>onCityClick(city.id)}
                         // onClick={()=>{

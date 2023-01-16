@@ -2,7 +2,8 @@ import Weather from './components/Weather';
 import Name from './components/Name';
 import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
-import getWeather from '../../utils/getWeather';
+// import getWeather from '../../utils/getWeather';
+import getWeather1 from '../apis/getWeather/getWeather1';
 
 const Container = styled.div`
     display: flex;
@@ -38,16 +39,26 @@ const City =({
 
     const [data, setData] = useState();
     // 使用useEffect拿数据
+    // useEffect(()=>{
+    //     getWeather(id, setData)//此处等于 getWeather((data) => setData(data)),因为data重名问题，因此改写，setData会直接进入getWeather中的onSuccess（setData）
+    //     // getWeather((data)=>{
+    //     //     setTemperature(data.main.temp)
+    //     //     setCondition(data.weather[0].main)
+    //     //     setHumidity(data.main.humidity)
+    //     //     setWind(data.wind.speed)
+    //     //     setName(data.name)
+    //     // })
+    // }, [id]);
+
     useEffect(()=>{
-        getWeather(id, setData)//此处等于 getWeather((data) => setData(data)),因为data重名问题，因此改写，setData会直接进入getWeather中的onSuccess（setData）
-        // getWeather((data)=>{
-        //     setTemperature(data.main.temp)
-        //     setCondition(data.weather[0].main)
-        //     setHumidity(data.main.humidity)
-        //     setWind(data.wind.speed)
-        //     setName(data.name)
-        // })
-    }, [id]);
+        const getData = async() =>{
+            const data = await getWeather1(id);
+            setData(data);
+        }
+        getData();
+    },[id])
+
+    console.log(data);
 
     // if(!data){
     //     return null;
@@ -66,12 +77,12 @@ const City =({
                         // condition ={condition}
                         // humidity= {humidity}
                         // wind= {wind}
-                        temperature={data.main.temp}
-                        condition ={data.weather[0].main}
-                        humidity= {data.main.humidity}
-                        wind= {data.wind.speed}
+                        temperature={data.data.main.temp}
+                        condition ={data.data.weather[0].main}
+                        humidity= {data.data.main.humidity}
+                        wind= {data.data.wind.speed}
                     />
-                    <Name name = {data.name}/>
+                    <Name name = {data.data.name}/>
                 </React.Fragment>)}
                 {/* 写法二 */}
             <Strip/>
