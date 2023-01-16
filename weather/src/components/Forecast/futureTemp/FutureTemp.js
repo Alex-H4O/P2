@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ConditionImage from "../../OtherCities/components/City/components/conditionImage/ConditionImage";
+import getForecast from "../../apis/getForecast/getForecast";
 
 const Container = styled.div`
     margin-top:26px;
@@ -34,7 +35,19 @@ const TEMPERATURE = [
     {id: 2158177, date:'Fri', weather:{icon:'01n',main:'Rain'}, temp:'8'}
 ]
 
-const FutureTemp =()=>{
+const FutureTemp =({
+    id,
+})=>{
+    // console.log(id);
+    const [forecastData, setForecastData] = useState();
+    useEffect(()=>{
+        const getForecastData = async() =>{
+            const forecastData = await getForecast(id);
+            setForecastData(forecastData);
+        }
+        getForecastData();
+    },[id])
+    console.log(forecastData);
     return(
         <Container>
                 {TEMPERATURE.map((item)=>{

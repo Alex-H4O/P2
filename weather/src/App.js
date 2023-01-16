@@ -35,7 +35,7 @@ const App = ()=> {
         <City id = {cityId} />
         <Bottom>
           <OtherCities currentCityId={cityId} onCityClick={(id) =>setCityId(id)} />
-          <Forecast />
+          <Forecast id = {cityId}/>
         </Bottom>
       </Card>
     </Container>
