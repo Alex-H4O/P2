@@ -10,6 +10,7 @@ const Container = styled.div`
 `;
 
 const Date = styled.div`
+    margin-left: 5px;
     margin-bottom: 16px;
 `;
 
@@ -22,6 +23,7 @@ const CardContainer = styled.div`
 `;
 
 const Temperature = styled.div`
+    margin-left: 3px;
     margin-top: 16px;
 `;
 
@@ -31,16 +33,6 @@ const FutureTemp =({
     weather,
     temp,
 })=>{
-    // console.log(id);
-    // const [forecastData, setForecastData] = useState();
-    // useEffect(()=>{
-    //     const getForecastData = async() =>{
-    //         const forecastData = await getForecast(id);
-    //         setForecastData(forecastData);
-    //     }
-    //     getForecastData();
-    // },[id])
-    // console.log(forecastData);
     return(
         <Container>
             <CardContainer>

@@ -18,14 +18,6 @@ const Title = styled.h2`
     margin-bottom: 0;
 `;
 
-const TEMPERATURE = [
-    {cityId: 0, date:'Mon', weather:{icon:'01n',main:'Rain'}, temp:'9'},
-    {cityId: 1, date:'Tue', weather:{icon:'01n',main:'Rain'}, temp:'11'},
-    {cityId: 2, date:'Wed', weather:{icon:'01n',main:'Rain'}, temp:'7'},
-    {cityId: 3, date:'Thu', weather:{icon:'01n',main:'Rain'}, temp:'8'},
-    {cityId: 4, date:'Fri', weather:{icon:'01n',main:'Rain'}, temp:'8'}
-]
-
 const Forecast =({
     id
 })=>{
