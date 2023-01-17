@@ -41,6 +41,7 @@ const OtherCities =({
         getOtherCitiesData();
     },[])
 
+
     // const [currentCity, setCurrentCity] = useState(2158177); onclick被提升后因为名称问题，所以更改为currentCity，
     //与City中的const [cityId, setCityId] = useState(2158177);重复
     return(

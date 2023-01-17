@@ -58,7 +58,6 @@ const City =({
         getData();
     },[id])
 
-    // console.log(data);
 
     // if(!data){
     //     return null;
