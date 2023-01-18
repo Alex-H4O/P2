@@ -37,7 +37,7 @@ const City =({
     // const [wind,setWind] = useState();
     // const [name, setName] = useState();
 
-    const [data, setData] = useState();
+    const [weatherData, setWeatherData] = useState();
     // 使用useEffect拿数据
     // useEffect(()=>{
     //     getWeather(id, setData)//此处等于 getWeather((data) => setData(data)),因为data重名问题，因此改写，setData会直接进入getWeather中的onSuccess（setData）
@@ -52,8 +52,8 @@ const City =({
 
     useEffect(()=>{
         const getData = async() =>{
-            const data = await getWeather1(id);
-            setData(data);
+            const weatherData = await getWeather1(id);
+            setWeatherData(weatherData);
         }
         getData();
     },[id])
@@ -68,7 +68,7 @@ const City =({
 
     return(
         <Container>
-            {data && (
+            {weatherData && (
                 <React.Fragment>
                     {/* 占位符 ,可以当一个root,但不渲染任何东西*/}
                     <Weather
@@ -76,12 +76,12 @@ const City =({
                         // condition ={condition}
                         // humidity= {humidity}
                         // wind= {wind}
-                        temperature={data.data.main.temp}
-                        condition ={data.data.weather[0].main}
-                        humidity= {data.data.main.humidity}
-                        wind= {data.data.wind.speed}
+                        temperature={weatherData.data.main.temp}
+                        condition ={weatherData.data.weather[0].main}
+                        humidity= {weatherData.data.main.humidity}
+                        wind= {weatherData.data.wind.speed}
                     />
-                    <Name name = {data.data.name}/>
+                    <Name name = {weatherData.data.name}/>
                 </React.Fragment>)}
                 {/* 写法二 */}
             <Strip/>
