@@ -17,6 +17,7 @@ const Title = styled.h2`
 //     {id:2174003, name:'Brisbane', temperature:'20', weather:{icon:'10n',main:'Rain'}},
 //     {id:2063523, name:'Perth', temperature:'21', weather:{icon:'01d',main:'Clear'}},
 // ]
+
 const CITIES = [
     {id:2158177, name:'Melbourne'},
     {id:2147714, name:'Sydney'},
@@ -41,7 +42,6 @@ const OtherCities =({
         getOtherCitiesData();
     },[])
 
-
     // const [currentCity, setCurrentCity] = useState(2158177); onclick被提升后因为名称问题，所以更改为currentCity，
     //与City中的const [cityId, setCityId] = useState(2158177);重复
     return(
@@ -65,7 +65,6 @@ const OtherCities =({
                         // onClick={()=>{
                         //     // setCurrentCity(city.id)
                         //     // onCityClick(city.id)
-
                         // }}
                     />
                 )

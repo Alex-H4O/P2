@@ -12,6 +12,7 @@ const Container = styled.div`
   background-image: url(https://wallpaperaccess.com/full/2629319.png);
   background-size: cover;
 `
+
 const Card = styled.div`
   width: 800px;
   /* height: 600px; */
@@ -26,8 +27,9 @@ const Bottom = styled.div`
 `
 
 const App = ()=> {
-  const [cityId, setCityId] = useState(2158177);//此处是从City文件夹下的City中提升上来的，
-  //因为othercity需要City中的setCityId，然而平级无法传递数据，所以提升
+  const [cityId, setCityId] = useState(2158177);
+  //此处是从City文件夹下的City中提升上来的，
+  //因为otherCity需要City中的setCityId，然而平级无法传递数据，所以提升
 
   return(
     <Container>

@@ -34,11 +34,11 @@ const City = ({
         //const [clicked, setClicked] = useState(false)
         //if(clicked) {
         //     return null;
-        // } 被提到othercities中，因为在city中无法获取其他city的信息。因为我们点击之后需要消失并显示其他城市
+        // } 被提到otherCities中，因为在city中无法获取其他city的信息。因为我们点击之后需要消失并显示其他城市
         <Container onClick={(event)=>{
             event.preventDefault();
             onClick(true);
-            // 此处控制的是othercity中的点击消失
+            // 此处控制的是otherCity中的点击消失
         }}>
             <Name>{name}</Name>
             <Temperature>{`${temperature} °`} </Temperature>
