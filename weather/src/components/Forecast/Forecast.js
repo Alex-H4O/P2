@@ -34,7 +34,7 @@ const Forecast =({
         return null
     }
 
-    const list =  [
+    const foreList =  [
         forecastData.data.list[0],
         forecastData.data.list[6],
         forecastData.data.list[14],
@@ -46,7 +46,7 @@ const Forecast =({
         <Container>
             <Title>Forecast</Title>
             <Container2>
-            {list && list.map((item)=>{
+            {foreList && foreList.map((item)=>{
                 return(
                     <FutureTemp
                         key = {item.cityId}
