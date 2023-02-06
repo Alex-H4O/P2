@@ -35,7 +35,6 @@ const OtherCities =({
         const getOtherCitiesData = async() =>{
             const ids = CITIES.map((c)=> c.id);
             const cityData = await getWeathers(ids);
-            // console.log(cityData);
             setCityData(cityData);
         }
 
